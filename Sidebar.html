@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+
+    <audio id="notification" autoplay>
+      <source src="https://drive.google.com/uc?id=1zYcXNd_VmmN-MRdp2wR2zWpoDzrX0Zyh&export=download"
+      type="audio/mp3">
+    </audio>
+
+    <center>
+     <p> </p>
+     <p> </p>
+     <p> </p>
+     <img src="https://drive.google.com/uc?export=view&id=1fdXihG6mfrYbiVqUDq3RNX-eB7VjRUty"
+     width="200">
+     <p> </p>
+     <p> </p>
+     <img src="https://drive.google.com/uc?export=view&id=17muz5U0TZdz74OlH6QzIxNzgzKPMhBaA"
+     width="290">
+     <p> </p>
+     <p> </p>
+     <img src="https://drive.google.com/uc?export=view&id=1fdXihG6mfrYbiVqUDq3RNX-eB7VjRUty"
+     width="200">
+     <p> </p>
+     <p> </p>
+     <img src="https://drive.google.com/uc?export=view&id=17muz5U0TZdz74OlH6QzIxNzgzKPMhBaA"
+     width="290">
+    </center>
+
+    <script>
+    var lastTime = []; // store the last result to track changes
+
+    function checkTally() {
+
+      // This calls the "getColumnB" function on the server
+      // Then it waits for the results
+      // When it gets the results back from the server,
+      // it calls the callback function passed into withSuccessHandler
+      google.script.run.withSuccessHandler(function (columnB) {
+        for (var i = 0; i < columnB.length; i++) {
+          // if there's a difference and it's a call, notify the user
+          if (lastTime[i] < columnB[i]) {
+            play();
+          }
+        }
+
+        // store results for next time
+        lastTime = columnB;
+
+        console.log(lastTime);
+
+     // This function returns a Promise that resolves after "ms" Milliseconds
+
+     // The current best practice is to create a Promise...
+     function timer(ms) {
+     return new Promise(res => setTimeout(res, ms));
+     }
+
+     async function loopthis () { // We need to wrap the loop into an async function for the await call (to the Promise) to work.  [From web: "An async function is a function declared with the async keyword. Async functions are instances of the AsyncFunction constructor, and the await keyword is permitted within them. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains."]
+    for (var i = 0; i >= 0; i++) {
+      console.log('Number of times function has been run: ' + i);
+      checkTally();
+      await timer(3000);
+     }
+   }
+
+
+  window.onload = function () {
+    loopthis();
+  }
+
+   </script>
+  </body>
+</html>
