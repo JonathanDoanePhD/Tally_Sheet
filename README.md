@@ -1,15 +1,15 @@
-# Tally_Sheet
-An interactive tally tracker I use to keep track of student participation in class.  This comes complete with a Google Apps Script which displays a confetti burst and plays a ping noise!
+# Classroom participation tally
 
-## Tally_Sheet
-Tally_Sheet Links.txt
+A small Google Sheets and Apps Script interaction for recording classroom participation. The script adds a **Tally Notifier** menu and opens a sidebar; the accompanying HTML supplies the sidebar interface and feedback effects.
 
-https://docs.google.com/spreadsheets/d/1Fja3ug-0J1IUZxQhTCSf6GBmfQkcP3Y7tEySwFR29C4/edit?usp=sharing
+## Files
 
-## Tally_Sheet_ORIGINAL
-Tally_Sheet Links.txt
+- [Apps Script entry point](Code.gs)
+- [Sidebar interface](Sidebar.html)
+- [Example spreadsheet links](Tally_Sheet%20Links.txt)
 
-https://docs.google.com/spreadsheets/d/1IkAAK0_v8xmyKPvraa25LLtE8RAYiQzCPJp9VTBWbu0/edit?usp=sharing
+## Try the pattern
 
-## Google Apps Script
-Cods.gs, Sidebar.html
+Create or copy a Google Sheet, open **Extensions → Apps Script**, add `Code.gs` and an HTML file named `Sidebar` containing the contents of `Sidebar.html`, then reload the spreadsheet and authorize the script when prompted. Inspect the example sheets before entering real student data. The linked sheets are examples, and their access or behavior may change over time.
+
+This is a classroom utility rather than a general attendance or grading platform. It illustrates practical Apps Script automation and a simple teacher-facing interface.
